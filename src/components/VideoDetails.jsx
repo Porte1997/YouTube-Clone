@@ -17,7 +17,7 @@ const VideoDetails = () => {
 
     useEffect(() => {
         setLoading(true);
-        document.getElementById("root").classList.add("custom-h");
+        document?.getElementById("root")?.classList?.add("custom-h");
         fetchVideoDetails();
         fetchRelatedVideos();
         setLoading(false);
@@ -25,8 +25,7 @@ const VideoDetails = () => {
 
     const fetchVideoDetails = () => {
         setLoading(true);
-        fetchDataFromApi(`video/details/?id=${id}`).then((res) => {
-            console.log(res);
+        fetchDataFromApi(`video/details/?id=${id}`)?.then((res) => {
             setVideo(res);
             setLoading(false);
         });
@@ -34,8 +33,7 @@ const VideoDetails = () => {
 
     const fetchRelatedVideos = () => {
         setLoading(true);
-        fetchDataFromApi(`video/related-contents/?id=${id}`).then((res) => {
-            console.log(res);
+        fetchDataFromApi(`video/related-contents/?id=${id}`)?.then((res) => {
             setRelatedVideos(res);
             setLoading(false);
         });

@@ -12,14 +12,13 @@ const SearchResult = () => {
     const { setLoading } = useContext(Context);
 
     useEffect(() => {
-        document.getElementById("root").classList.remove("custom-h");
+        document?.getElementById("root")?.classList?.remove("custom-h");
         fetchSearchResults();
     }, [searchQuery]);
 
     const fetchSearchResults = () => {
         setLoading(true);
-        fetchDataFromApi(`search/?q=${searchQuery}`).then((res) => {
-            console.log(res);
+        fetchDataFromApi(`search/?q=${searchQuery}`)?.then((res) => {
             setResult(res?.contents);
             setLoading(false);
         });
@@ -32,10 +31,10 @@ const SearchResult = () => {
                 <div className="grid grid-cols-1 gap-2 p-5">
                     {result?.map((item) => {
                         if (item?.type !== "video") return false;
-                        let video = item.video;
+                        let video = item?.video;
                         return (
                             <SearchResultVideoCard
-                                key={video.videoId}
+                                key={video?.videoId}
                                 video={video}
                             />
                         );
