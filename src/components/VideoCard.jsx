@@ -5,17 +5,17 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import VideoLength from "../shared/VideoLength";
 
-const VideoCard = ({video}) => {
+const VideoCard = ({ video }) => {
     return (
         <Link to={`/video/${video?.videoId}`}>
             <div className="flex flex-col mb-8">
                 <div className="relative h-48 md:h-40 md:rounded-xl overflow-hidden">
                     <img
                         className="h-full w-full object-cover"
-                        src={video?.thumbnails?.[0]?.url}
+                        src={video?.thumbnails[0]?.url}
                     />
                     {video?.lengthSeconds && (
-                      <VideoLength time={video?.lengthSeconds} />
+                        <VideoLength time={video?.lengthSeconds} />
                     )}
                 </div>
                 <div className="flex text-white mt-3">
@@ -32,7 +32,6 @@ const VideoCard = ({video}) => {
                             {video?.title}
                         </span>
                         <span className="text-[12px] font-semibold mt-2 text-white/[0.7] flex items-center">
-                            {video?.author?.title}
                             {video?.author?.title}
                             {video?.author?.badges[0]?.type ===
                                 "VERIFIED_CHANNEL" && (
